@@ -1,0 +1,12 @@
+# ビルド成果物
+bin/
+obj/
+dist/
+*_wpftmp.csproj
+
+# IDE
+.vs/
+.vscode/
+*.user
+
+REQUEST.md
