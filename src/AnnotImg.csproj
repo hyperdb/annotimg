@@ -13,15 +13,13 @@
     <ApplicationIcon>..\annotimg.ico</ApplicationIcon>
   </PropertyGroup>
 
-  <!-- 配布用: .NET ランタイム不要の単一 exe として発行する -->
+  <!-- 配布用: .NET ランタイムを同梱しない単一 exe として発行する（実行には .NET デスクトップ ランタイムが必要） -->
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <SelfContained>true</SelfContained>
+    <SelfContained>false</SelfContained>
     <PublishSingleFile>true</PublishSingleFile>
+    <!-- SkiaSharp のネイティブ DLL (libSkiaSharp.dll) も exe に含め、起動時に一時フォルダーへ展開する -->
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
-    <!-- WPF の C++/CLI アセンブリ (DirectWriteForwarder.dll) はバンドル内から直接読めないため、起動時に一時フォルダーへ展開する -->
-    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
-    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
     <DebugType>none</DebugType>
   </PropertyGroup>
 
